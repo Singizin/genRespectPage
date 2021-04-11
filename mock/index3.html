@@ -1,0 +1,92 @@
+﻿<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ name }}</title>
+    <meta name="description" content="Интерактивное руководство по началу работы в Brackets.">
+    <link rel="stylesheet" href="css/tv_css.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .image_reward {
+            position: relative;
+            width: 100%;
+        }
+
+        .image_reward img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .h2_reward {
+            position: absolute;
+            {% if place == 0 or place == 3%}
+            bottom: 50px;
+            {% else %}
+            top: 50px;
+            {% endif %}
+            {% if place == 0 or place == 1 %}
+            left: 0;
+            {% else %}
+            right: 0;
+            text-align: right;
+            {% endif %}
+            width: 100%;
+        }
+
+        .h2_reward span {
+            color: white;
+            font: bold 3vw/4.3vw Helvetica, Sans-Serif;
+            letter-spacing: -1px;
+            background: rgb{{ color }};
+
+            /* на случай, если следующая строка не сработает */
+            padding: 10px 0;
+
+        }
+        .h2_reward span.spacer {
+            padding: 0 5px;
+        }
+
+        .h2_reward span.name {
+            color: white;
+
+        .logo_sv {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        }
+        }
+
+    </style>
+</head>
+
+<div class="image_reward">
+    <img src="{{ img_url }}" alt=""/>
+    <h2 class="h2_reward">
+        <span>
+            {% for name in names %}
+                <span class="spacer"></span>
+                <span class="name">
+                    {{ name }}
+                </span>
+                <span class="spacer"></span>
+                <br/>
+                <span class="spacer"></span>
+            {% endfor %}
+            {{ second }}
+            {% if third != None %}
+                <span class="spacer"></span>
+                <br/>
+                <span class="spacer"></span>
+                {{ third }}
+            {% endif %}
+            <span class="spacer"></span>
+            </span>
+    </h2>
+</div>
+
+</html>
